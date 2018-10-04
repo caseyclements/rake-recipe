@@ -1,0 +1,43 @@
+{% set name = "rake" %}
+{% set version = "1.0" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: ea169d83e06cce58fa2257dd233ef36e16aa4ad40f29413f16c62ebc94a3e2d6
+
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv "
+
+requirements:
+  host:
+    - pbp.skels >=0.2.4
+    - pip
+    - pip
+    - pypirc >=1.0.4
+    - python
+  run:
+    - pbp.skels >=0.2.4
+    - pypirc >=1.0.4
+    - python
+
+test:
+  imports:
+    - rake
+
+about:
+  home: https://github.com/fishkao/rake
+  license: MIT
+  license_family: MIT
+  license_file: 
+  summary: ('Rapid Automatic Keywords Extraction', 'Just a Practice')
+  doc_url: 
+  dev_url: 
+
+extra:
+  recipe-maintainers:
+    - your-github-id-here
