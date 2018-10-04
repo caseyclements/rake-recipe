@@ -11,18 +11,12 @@ source:
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv "
+  script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   host:
-    - pbp.skels >=0.2.4
-    - pip
-    - pip
-    - pypirc >=1.0.4
     - python
   run:
-    - pbp.skels >=0.2.4
-    - pypirc >=1.0.4
     - python
 
 test:
